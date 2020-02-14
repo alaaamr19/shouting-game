@@ -1,0 +1,81 @@
+<html>
+
+<head>
+
+  <title> Shouting Duck</title>
+  <link rel="icon" href="images/freedom.png" />
+  <link rel="stylesheet" type="text/css" href="homepagestyle.css">
+
+  <link href="css/bootstrap.css" rel="stylesheet" />
+
+  <script src="js/JQuery-3.3.1.min.js"></script>
+  <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="mainScript.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class="mainDiv">
+
+    <div class="innerClass">
+      <h1> Shouting Duck Game</h1>
+      <input type="text" name="userName" id="inputTxt" placeholder="Enter Your Name :)">
+      <span id="wlcomeDiv"></span>
+      <div class="dropdown">
+        <button style="background-color: rgba(37, 37, 39, 0.5);
+                      " id="Levelbtn" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Level
+        </button>
+        <ul id="levels" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li id="Level1" class="dropdown-item">Level 1</li>
+          <li id="Level2" class="dropdown-item">Level 2</li>
+        </ul>
+      </div>
+      <!-- <select >
+                      <option id="Level1btn" value="Level1">
+                      </option>
+                      <optionid="Level2btn" value="Leve2"></option>
+                    </select> -->
+      <!-- <input type="button" id="Level1btn" value="Level1">
+                    <input type="button" id="Level2btn" value="Leve2"> -->
+      <input type="button" id="playbtn" data-toggle="modal" data-target="#myModal" value="Play">
+
+
+    </div>
+
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <p class="lead text-success"></p>
+
+          </div>
+
+          <div class="modal-body">
+            <img src="images/giphyy.gif">
+          </div>
+
+
+          <div class="modal-footer">
+            <a href="gamePage.html"> <button class="btn btn-success text-center" id="letsPlay">Let's Play</button></a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+
+
+</html>

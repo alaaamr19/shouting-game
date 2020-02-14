@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <script src="jquery-1.12.4.js"> </script>
+    <link rel="stylesheet" type="text/css" href="assets/skins/yellowcircle.css">
+    <script type="text/javascript" src="assets/circle.js"></script>
+    <style>
+
+div {
+    cursor: auto;
+
+    cursor: url(E:\I.T.I\J.S\JS.project\timer\cursor.jpg), auto; 
+     /* cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/meh.png"), auto;  */
+}
+
+    </style>
+</head>
+
+<body>
+   
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+   
+
+        <div class="auto"id="circle" data-circle-dialWidth=10 data-circle-skin="yellow">
+            <div class="loader-bg">
+                <div class="text">00:00</div>
+            </div>
+        </div>
+     <script >
+        $(document).ready(function() {
+            $("#circle").Circlebar({
+                maxValue: 120,
+                fontSize: "20px",
+                skin: "fire",
+                triggerPercentage: true
+            });
+            
+        });
+        </script>
+       
+</body>
+
+</html>

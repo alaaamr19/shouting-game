@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body
+{
+    width: 100%;
+    height: 100%;
+    background-image: url("images/sky3.png") ;
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* text-align: center; */
+    cursor:url('images/cursor.png'), auto;
+
+    /* transition: all 2s; */
+
+
+}
+
+#nameLabel{
+
+    position: absolute;
+    margin-left: 1100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 60px;
+    text-shadow: 10px 10px 10px ;
+    color: rgb(17, 78, 158);
+    
+}
+
+#scoreLabel{
+
+    position: absolute;
+    margin-left: 150px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 60px;
+    text-shadow: 10px 10px 10px ;
+    color: rgb(17, 78, 158);   
+}
+
+
+#gameOverModel,#gameOverbtn
+
+{
+    display: none;
+    margin: auto;
+    width: 40%;
+    height: 70%;
+    font:bold 15px tahoma;
+    transform: scale(1.1);
+    margin-top: 50px;
+    margin-left: 370px;
+    text-align: center;
+    transition: all 2s;
+    
+
+}
+
+.mainDiv
+{
+    width: 80%;
+    height: 600px;
+    background-color: rgba(0, 0, 1, 0.7);
+    margin: 30px auto;
+    text-align: center;
+    transition: all 2s;
+    
+
+}
+.innerClass
+{
+    width: 40%;
+    height: 595px;
+    margin: 10px auto;
+    
+}
+#levels{
+    background-color:rgba(0, 0, 1, 0.2) ;
+    width: 370px;
+    
+}
+
+#levels li{
+    color: lightcyan;
+
+}
+#levels li:hover{
+    color: rgba(0, 0, 1);
+}
+#Levelbtn:hover{
+    border: 2px solid lightcyan;
+    cursor: pointer;   
+}
+
+#sound{
+    position: fixed;
+    margin-left: 1300px;
+    height: 50px;
+    width: 50px;
+}
+.innerClass h1{
+    color: lightcyan;
+    text-shadow: lightcyan 5px 5px 10px;
+    padding: 10px;
+    font-family:Goudy Stout;
+}
+
+.innerClass input,.innerClass button
+{
+
+    width: 370px;
+    height: 60px;
+    background-color: rgba(0, 0, 1, 0.2);
+    border: none;
+    margin: 40px;
+    text-align: center;
+    color: white;
+
+
+}
+.innerClass input:hover
+{
+    transition: all 2s;
+    transform: scale(1.2);
+    border: 2px solid lightcyan;
+    cursor: pointer;
+}
+
+#gameOverGiv{
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    
+}

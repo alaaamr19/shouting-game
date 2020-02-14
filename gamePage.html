@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <title> Shouting Duck</title>
+  <link rel="icon" href="images/freedom.png" />
+  <link href="css/bootstrap.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- timer -->
+
+  <link rel="stylesheet" type="text/css" href="timer/assets/skins/yellowcircle.css">
+  <script src="jquery-3.2.1.js"></script>
+  <script src="timer/jquery-1.12.4.js"> </script>
+  <script src="timer/assets/circle.js"></script>
+  <script src="timerScript.js"></script>
+  <link rel="stylesheet" type="text/css" href="homepagestyle.css">
+
+</head>
+
+<body>
+
+  <div>
+    <img id="sound" src="images\mute.png">
+  </div>
+
+
+  <label id="nameLabel"></label>
+
+  <label id="scoreLabel">Score</label>
+
+
+
+
+  <div style="position: fixed;" class="auto" id="circle" data-circle-dialWidth=5 data-circle-skin="yellow">
+    <div class="loader-bg">
+      <div class="text"></div>
+    </div>
+  </div>
+
+  <input type="button" style="position: absolute;" id="gameOverbtn" data-toggle="modal" data-target="#gameOverModel">
+
+
+  <div class="modal-content justify-content-center" style="position: absolute;" id="gameOverModel">
+    <!--Header-->
+    <div class="modal-header justify-content-center" id="modelHeader" style="margin: auto;">
+      <p id="loseorwin" class="heading lead">game Over</p>
+
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span id="closemodal" aria-hidden="true" class="white-text">×</span>
+      </button>
+    </div>
+
+    <!--Body-->
+    <div class="modal-body">
+
+      <img style="margin: auto;width:90%;" id="gameOverGiv" src="images/giphyy.gif">
+
+    </div>
+
+    <!--Footer-->
+    <div class="modal-footer justify-content-center">
+      <a type="button" href="gamePage.html" class="btn btn-primary waves-effect waves-light">replay
+        <i class="far fa-gem ml-1 text-white"></i>
+      </a>
+      <a href="mainHtml.html" type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">No,
+        thanks</a>
+    </div>
+  </div>
+
+</body>
+<script src="gameScript.js"></script>
+
+
+</html>
