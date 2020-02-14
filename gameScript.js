@@ -118,10 +118,11 @@ $(function () {
       count++;
       var stop = getwin(Birds.countbird + Bomb.killeddoves, count);
       if (stop == true) {
-         clearInterval(mainbirds);
-         clearInterval(sounds);
-         duckSound.pauseSound();
          stopAllelement();
+         clearInterval(mainbirds);
+         clearInterval(this.sounds);
+         duckSound.pauseSound();
+         
          return;
       }
    }, 1000);
@@ -134,12 +135,11 @@ $(function () {
    // after 2 minute game ends
 
 setTimeout(function () {
-
-   $(".dove").stop().remove();
-   sgameOverPopUp();
-   clearInterval(sounds);
-   clearInterval(stopinterval);
+   stopAllelement()   
    clearInterval(mainbirds);
+   gameOverPopUp();
+   clearInterval(this.sounds);
+   //clearInterval(stopinterval);
    duckSound.pauseSound();
 }, 120000)
 
@@ -391,7 +391,7 @@ function getwin(noOfBirds, duration) {
 }
 
 function gameOverPopUp() {
-
+  
    var score = scoree(Birds.countbird + Bomb.killeddoves, Bomb.killedblackdovs + Birds.blcountbird, Bomb.killedgolddovs + Birds.countgoldbird);
    $("#gameOverModel").css({ display: "block" });
    $("#loseorwin").html(`<center>GAME OVER </br>
