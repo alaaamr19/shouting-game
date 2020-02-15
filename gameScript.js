@@ -109,7 +109,7 @@ $(function () {
       birdObj.clicked();
 
 
-   }, 300);
+   }, 1000);
 
    //win if killing 20 dove in 1 minute
 
@@ -139,11 +139,14 @@ setTimeout(function () {
    clearInterval(mainbirds);
    gameOverPopUp();
    clearInterval(this.sounds);
-   //clearInterval(stopinterval);
    duckSound.pauseSound();
+   setTimeout(function(){
+      clearInterval(stopinterval);
+   },1000)
 }, 120000)
 
 });
+
 
 
 
@@ -165,13 +168,13 @@ class Bomb {
       this.position = position;
       this.speed = speed;
       this.size = size;
-      this.divObject = $(`<img class='bomb' src='images/giphy.gif' style='width:${this.size + 10 + "px"}; height:${this.size + 10 + "px"} margin-top:"-20px" ;position:absolute'/>`);
+      this.bombImg = $(`<img class='bomb' src='images/giphy.gif' style='width:${this.size + 10 + "px"}; height:${this.size + 10 + "px"} margin-top:"-20px" ;position:absolute'/>`);
    }
    setposition() {
-      this.divObject.css({ "margin-left": this.position + "px" })
+      this.bombImg.css({ "margin-left": this.position + "px" })
    }
    showw() {
-      this.divObject.delay(this.time).queue(function (next) {
+      this.bombImg.delay(this.time).queue(function (next) {
          $(this).appendTo("body");
          next();
 
@@ -180,13 +183,13 @@ class Bomb {
 
    }
    move() {
-      this.divObject.animate({ marginTop: parseInt($("body").css("height")) - this.size + "px" }, this.speed, "linear", function () {
+      this.bombImg.animate({ marginTop: parseInt($("body").css("height")) - this.size + "px" }, this.speed, "linear", function () {
          $(this).fadeOut(100).remove();
       });
    }
    clicked() {
       var object = this;
-      this.divObject.on("click", function (e) {
+      this.bombImg.on("click", function (e) {
          window.playallSound(this);
          var x = e.clientX;
          var y = e.clientY;
@@ -209,8 +212,8 @@ class Bomb {
       for (let n = 0; n < diedobject.length; n++) {
          if (Math.hypot((x - (diedobject[n].getBoundingClientRect().left + 100)), (y - (diedobject[n].getBoundingClientRect().top) + 80)) <= ob.size * 15) {
             diedobject[n].src = `images/${diedobject[n].className}.png`;
-            diedobject[n].style.width = "80px";
-            diedobject[n].style.height = "80px";
+            diedobject[n].style.width = "100px";
+            diedobject[n].style.height = "100px";
             bombobj.src = "images/tenor.gif";
             bombobj.style.width = ob.size * 10 + "px";
             bombobj.style.height = ob.size * 10 + "px";
@@ -271,14 +274,14 @@ class Birds {
       this.type = type;
       this.directiononlevel2 = 1;
       if (this.type == 1) {
-         this.birdImg = $("<img class='dove' src='images/newbired.gif'  style='  width:70px ; height:70px ; position:absolute; margin-left:-100px'/>");
+         this.birdImg = $("<img class='dove' src='images/newbired.gif'  style='  width:100px ; height:100px ; position:absolute; margin-left:-100px'/>");
       }
       else if (this.type == 2) {
          this.birdImg = $("<img  class='gdove'src='images/gold.gif'style=' width:100px ; height:100px ; position:absolute; margin-left:-100px'/>");
 
       }
       else {
-         this.birdImg = $("<img  class='bdove'src='images/black.gif'style=' width:100px ; height:100px ; position:absolute; margin-left:-100px'/>");
+         this.birdImg = $("<img  class='bdove'src='images/black.gif'style=' width:110px ; height:110px ; position:absolute; margin-left:-100px'/>");
 
       }
       if (this.position >= (parseInt($("body").css("height")) - 150) / 2) {
@@ -310,20 +313,20 @@ class Birds {
    motion() {
 
       if (this.level == 1) {
-         this.birdImg.animate({ marginLeft: parseInt($("body").css("width")) + 50 + "px" }, 6000,function(){
+         this.birdImg.animate({ marginLeft: parseInt($("body").css("width")) + 50 + "px" }, 8000,function(){
             $(this).remove(); 
          })
       }
       else if (this.level == 2) {
          if (this.directiononlevel2 == 1) {
-            this.birdImg.animate({ 'marginLeft': this.movement + 200 + "px", marginTop: parseInt($("body").css("height")) * -1 + 2 * this.position - 50 + "px" }, 2000, function () {
-               $(this).animate({ marginTop: parseInt($("body").css("height")) + 50 + "px", marginLeft: parseInt($("body").css("width")) + 50 + "px" }, 2000, "linear", function () { $(this).fadeOut(200).remove() });
+            this.birdImg.animate({ 'marginLeft': this.movement + 200 + "px", marginTop: parseInt($("body").css("height")) * -1 + 2 * this.position - 50 + "px" }, 3500, function () {
+               $(this).animate({ marginTop: parseInt($("body").css("height")) + 50 + "px", marginLeft: parseInt($("body").css("width")) + 50 + "px" }, 3500, "linear", function () { $(this).fadeOut(200).remove() });
             })
          }
          else {
             this.birdImg.animate({ 'marginLeft': this.movement + 200 + "px", marginTop: (parseInt($("body").css("height")) - this.position + 50) + "px" },
-               2000, "linear", function () {
-                  $(this).animate({ 'marginLeft': parseInt($("body").css("width")) + 50 + "px", marginTop: "10px" }, 2000, "linear", function () {
+               3500, "linear", function () {
+                  $(this).animate({ 'marginLeft': parseInt($("body").css("width")) + 50 + "px", marginTop: "10px" }, 3500, "linear", function () {
                      $(this).fadeOut(200).remove()
                   });
                });
@@ -338,26 +341,23 @@ class Birds {
          $(this).off();
          if (obj.type == 1) {
             this.src = "images/dove.png";
-            this.style.width = "80px";
-            this.style.height = "80px";
-            Birds.countbird += 1;
+           Birds.countbird += 1;
             window.playallSound(this);
 
          }
          else if (obj.type == 2) {
             this.src = "images/gdove.png";
-            this.style.width = "100px";
-            this.style.height = "100px";
             Birds.countgoldbird += 1;
             window.playallSound(this);
          }
          else if (obj.type == 3) {
             this.src = "images/bdove.png";
-            this.style.width = "70px";
-            this.style.height = "70px";
             Birds.blcountbird += 1;
             window.playallSound(this);
          }
+         this.style.width = "100px";
+         this.style.height = "100px";
+         
          $(this).stop().animate({ marginTop: `${parseInt($("body").css("height")) + "px"}` }, 2000, function () { $(this).fadeOut(200).remove() });
 
 
